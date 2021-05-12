@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div align="center">
+		<h1>LISTE VOITURE</h1>
+		<a href="newVoiture">Creer nouveau voiture</a>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Marque Voiture</th>
+					<th>Prix Voiture</th>
+					<th>Commentaire</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="voiture : ${listeVoiture}">
+					<td th:text=${voiture.marqueVoiture}></td>
+					<td th:text=${voiture.prixVoiture}></td>
+					<td th:text=${voiture.commentaireVoiture}></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	
+</body>
+</html>
