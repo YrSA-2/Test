@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/nav.css}">
 </head>
 <body>
 	<div align="center">
@@ -12,19 +13,19 @@
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>Marque voiture</td>
-					<td><input type="text" th:field="*{marqueVoiture}" /></td>
+					<td><input type="text" th:field="*{marque}" required/></td>
 				</tr>
 				<tr>
-					<td>Prix voiture</td>
-					<td><input type="text" th:field="*{prixVoiture}" /></td>
+					<td>Type voiture</td>
+					<td><input type="text" th:field="*{type}" required/></td>
 				</tr>
 				<tr>
-					<td>Commentaire</td>
-					<td><input type="text" th:field="*{commentaireVoiture}" /></td>
+					<td>Energie</td>
+					<td><input type="text" th:field="*{energie}" required/></td>
 				</tr>
 				<tr>
-					<td colspan="2"><button type="submit">Sauvegarder</button></td>
-					<td colspan="2"><button type="button"><a href="/">Annuler</a></button></td>
+					<td colspan="2"><button class="btn btn-info" type="submit">Sauvegarder</button></td>
+					<td colspan="2"><button  class="btn btn-danger"type="button"><a style ="text-decoration:none;color:#fff;"href="/pageAdmin">Annuler</a></button></td>
 				</tr>
 			</table>
 		</form>

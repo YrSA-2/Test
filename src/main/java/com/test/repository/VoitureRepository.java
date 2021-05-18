@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.test.model.Voiture;
 
 @Repository
-public interface VoitureRepository extends JpaRepository<Voiture, Long>{
+public interface VoitureRepository extends JpaRepository<Voiture, Long> {
 
 }

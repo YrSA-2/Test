@@ -3,9 +3,9 @@ package com.test.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.test.model.User;
+import com.test.model.CommentVoiture;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-	User findUsernamePassword(String username, String password);
+public interface CommentaireRepository extends JpaRepository<CommentVoiture, Long> {
+
 }
