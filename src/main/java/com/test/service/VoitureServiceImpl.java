@@ -15,16 +15,15 @@ public class VoitureServiceImpl implements VoitureService{
 	private VoitureRepository repos;
 	
 	@Override
-	public List<Voiture> getAllVoiture() {
+	public List<Voiture> getVoiture() {
 		
 		return repos.findAll();
 	}
 
 	@Override
 	public void saveVoiture(Voiture voiture) {
-		repos.save(voiture);		
+		repos.save(voiture);
+		
 	}
-	
-	
 
 }

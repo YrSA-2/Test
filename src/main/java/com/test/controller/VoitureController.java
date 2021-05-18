@@ -1,7 +1,5 @@
 package com.test.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,32 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.test.model.User;
-import com.test.model.Voiture;
-import com.test.service.UserServiceImpl;
 import com.test.service.VoitureService;
+import com.test.model.Voiture;
 
 @Controller
 public class VoitureController {
-	
+
 	@Autowired
-	private VoitureService voitureService;
+	private VoitureService service;
 	
-	
-	@GetMapping("/")
-	public String home() {
-		return "pages/home";		
-	}
-	
-	@GetMapping("/listVoiture")
-	public String listeVoiture(Model model) {
-		List<Voiture> listVoiture = voitureService.getAllVoiture();
-		model.addAttribute("listeVoiture", listVoiture);
-		
-		return "pages/listeVoiture";
-	}
 	
 	@GetMapping("/newVoiture")
 	public String newVoitureForm(Model model) {
@@ -46,12 +28,27 @@ public class VoitureController {
 	
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String saveVoiture(@ModelAttribute("voiture") Voiture voiture) {
-		voitureService.saveVoiture(voiture);
-		return "redirect:/listVoiture";
+		service.saveVoiture(voiture);
+		return "redirect:/listeVoiture";
 	}
 	
-	@GetMapping("/connexion")
-	public String connexion() {
-		return "pages/connect";
+	@GetMapping("/pageAdmin")
+	public String pageAdmin(Model model) {
+		model.addAttribute("listVoiture",service.getVoiture());
+		return "pages/pageAdmin";
 	}
+	
+	@GetMapping("/listeVoiture")
+	public String listVoiture(Model model) {
+		model.addAttribute("listVoiture",service.getVoiture());
+		return "pages/listeVoiture";
+	}
+	
+	@GetMapping("/")
+	public String home(Model model) {
+		model.addAttribute("listVoiture",service.getVoiture());
+		return "pages/listeVoiture";
+	}
+	
+	
 }

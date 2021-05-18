@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/nav.css}">
+</head>
+<body>
+	<div align="center">
+	<div th:insert="partials/header :: menuAdmin"></div>
+	<div>
+		<h1>Page ADMIN</h1>
+	</div>
+
+	<div th:insert="pages/listeVoiture:: listeVoiture"></div>		
+		<br/>
+		<div th:insert="partials/footer :: footer-admin"></div>
+	</div>
+	
+</body>
+</html>

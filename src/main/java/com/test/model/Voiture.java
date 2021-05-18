@@ -8,45 +8,55 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "voiture")
 public class Voiture {
-	private long id;
-	private String marqueVoiture;
-	private float prixVoiture;
-	private String commentaireVoiture;
-	
+
+	private Long id;
+	private String marque;
+	private String type;
+	private String energie;
 	public Voiture() {
 		
+	}
+	public Voiture(Long id, String marque, String type, String energie) {
+		super();
+		this.id = id;
+		this.marque = marque;
+		this.type = type;
+		this.energie = energie;
 	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long getId() {
+	@Column(name = "id_voiture")
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getMarqueVoiture() {
-		return marqueVoiture;
+	@Column(name = "marque")
+	public String getMarque() {
+		return marque;
 	}
-	public void setMarqueVoiture(String marqueVoiture) {
-		this.marqueVoiture = marqueVoiture;
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}
+	@Column(name = "type")
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	@Column(name = "energie")
+	public String getEnergie() {
+		return energie;
+	}
+	public void setEnergie(String energie) {
+		this.energie = energie;
 	}
 	
-	public float getPrixVoiture() {
-		return prixVoiture;
-	}
-
-	public void setPrixVoiture(float prixVoiture) {
-		this.prixVoiture = prixVoiture;
-	}
-
-	public String getCommentaireVoiture() {
-		return commentaireVoiture;
-	}
-	public void setCommentaireVoiture(String commentaireVoiture) {
-		this.commentaireVoiture = commentaireVoiture;
-	}
 	
 	
 }
